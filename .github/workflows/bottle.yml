@@ -31,14 +31,22 @@ jobs:
         run: |
           set -euxo pipefail
           formula_name="${{ github.event.inputs.formula }}"
-          formula="$PWD/Formula/$formula_name.rb"
-          version="$(brew info --json=v2 "$formula" \
-            | python3 -c 'import sys,json;print(json.load(sys.stdin)["formulae"][0]["versions"]["stable"])')"
+
+          # Homebrew only loads formulae from a tap, so expose the checkout as
+          # the sanketsaurav/tap tap (a symlink). Edits by `brew bottle --merge`
+          # then land back in this checkout.
+          tap_dir="$(brew --repository)/Library/Taps/sanketsaurav/homebrew-tap"
+          mkdir -p "$(dirname "$tap_dir")"
+          ln -s "$PWD" "$tap_dir"
+          ref="sanketsaurav/tap/$formula_name"
+
+          version="$(grep -oE "$formula_name-[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz" "Formula/$formula_name.rb" \
+            | head -1 | sed -E "s/$formula_name-(.*)\.tar\.gz/\1/")"
           tag="$formula_name-$version"
           root="https://github.com/${{ github.repository }}/releases/download/$tag"
 
-          brew install --build-bottle "$formula"
-          brew bottle --json --no-rebuild --root-url="$root" "$formula"
+          brew install --build-bottle "$ref"
+          brew bottle --json --no-rebuild --root-url="$root" "$ref"
 
           # brew names the file with `--`; the download URL uses a single `-`.
           for f in ./*.bottle.tar.gz; do mv "$f" "${f/--/-}"; done
