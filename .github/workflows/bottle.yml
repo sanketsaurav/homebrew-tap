@@ -1,0 +1,65 @@
+name: Bottle
+
+# Builds a prebuilt bottle for a formula so `brew install` pours it (seconds)
+# instead of compiling from source (minutes). Runs on a macOS runner; the bottle
+# is uploaded to a release in this repo and the bottle block is committed to the
+# formula. Trigger manually after a formula updates.
+
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: "Formula to bottle"
+        default: museletter
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  bottle:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build and bottle
+        id: bottle
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HOMEBREW_NO_AUTO_UPDATE: "1"
+          HOMEBREW_NO_INSTALL_CLEANUP: "1"
+        run: |
+          set -euxo pipefail
+          formula_name="${{ github.event.inputs.formula }}"
+          formula="$PWD/Formula/$formula_name.rb"
+          version="$(brew info --json=v2 "$formula" \
+            | python3 -c 'import sys,json;print(json.load(sys.stdin)["formulae"][0]["versions"]["stable"])')"
+          tag="$formula_name-$version"
+          root="https://github.com/${{ github.repository }}/releases/download/$tag"
+
+          brew install --build-bottle "$formula"
+          brew bottle --json --no-rebuild --root-url="$root" "$formula"
+
+          # brew names the file with `--`; the download URL uses a single `-`.
+          for f in ./*.bottle.tar.gz; do mv "$f" "${f/--/-}"; done
+
+          gh release create "$tag" --repo "${{ github.repository }}" \
+            --title "$tag" --notes "Prebuilt bottle for $formula_name $version." || true
+          gh release upload "$tag" ./"$formula_name"-"$version".*.bottle.tar.gz \
+            --repo "${{ github.repository }}" --clobber
+
+          brew bottle --merge --write --no-commit ./"$formula_name"--"$version".*.bottle.json
+
+          {
+            echo "formula_name=$formula_name"
+            echo "version=$version"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Commit the bottle block
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Formula/${{ steps.bottle.outputs.formula_name }}.rb"
+          git diff --cached --quiet \
+            || git commit -m "${{ steps.bottle.outputs.formula_name }} ${{ steps.bottle.outputs.version }}: add bottle"
+          git push
