@@ -60,7 +60,13 @@ jobs:
           for formula_name in ${{ steps.pick.outputs.list }}; do
             ref="sanketsaurav/tap/$formula_name"
             version="$(grep -oE "$formula_name-[0-9]+\.[0-9]+\.[0-9]+\.tar\.gz" "Formula/$formula_name.rb" \
-              | head -1 | sed -E "s/$formula_name-(.*)\.tar\.gz/\1/")"
+              | head -1 | sed -E "s/$formula_name-(.*)\.tar\.gz/\1/")" || true
+            if [ -z "$version" ]; then
+              # Prebuilt-binary formulae (e.g. portia) have no source tarball —
+              # there's nothing to compile, so a bottle would add nothing.
+              echo "skipping $formula_name: no source tarball, nothing to bottle"
+              continue
+            fi
             tag="$formula_name-$version"
             root="https://github.com/${{ github.repository }}/releases/download/$tag"
 
