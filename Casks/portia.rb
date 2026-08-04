@@ -4,10 +4,10 @@ cask "portia" do
   version "0.5.0"
   sha256 "ecebb69f98903139e58072f1441fbd01f23c0a22705b1c9f2fbf0607642eabec"
 
-  url "https://github.com/sanketsaurav/portia/releases/download/v0.5.0/Portia-0.5.0.dmg"
+  url "https://dl.portia.sh/v0.5.0/Portia-0.5.0.dmg"
   name "Portia"
   desc "Local, web-based code review built for AI coding agents"
-  homepage "https://github.com/sanketsaurav/portia"
+  homepage "https://portia.sh"
 
   depends_on macos: ">= :monterey"
 
