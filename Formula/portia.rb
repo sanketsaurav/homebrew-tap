@@ -3,28 +3,28 @@
 class Portia < Formula
   desc "Local, web-based code review built for AI coding agents"
   homepage "https://portia.sh"
-  version "0.5.0"
+  version "0.5.1"
   license "MIT"
 
   on_macos do
     on_arm do
-      url "https://dl.portia.sh/v0.5.0/portia-darwin-arm64"
-      sha256 "c21559b1bd99f5747de8d23c81101539616d493f6c547ef85ef103cf2c61737a"
+      url "https://dl.portia.sh/v0.5.1/portia-darwin-arm64"
+      sha256 "34a5c17b232317ae3ec5ee6a6bf65cd6c49d0b88b782c721ddf9304f1996442e"
     end
     on_intel do
-      url "https://dl.portia.sh/v0.5.0/portia-darwin-x64"
-      sha256 "832094e583fdb5342f29b9061a1107f3b080646663ff859320bc8a54f12cf583"
+      url "https://dl.portia.sh/v0.5.1/portia-darwin-x64"
+      sha256 "8c77ad3079587e40563f3fb1a38a360ef810c5fc66a14cf91fa7ff9e9734cc4f"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://dl.portia.sh/v0.5.0/portia-linux-arm64"
-      sha256 "1950f1f0f0e31873d3a3aa50d0c8ae1d41f28bb50c119c818ed9a5e5668daaca"
+      url "https://dl.portia.sh/v0.5.1/portia-linux-arm64"
+      sha256 "2d215f6795eecfa7f8b1b1ee3c23612be5af4ee0f84fbfb09839c42439b2e6b5"
     end
     on_intel do
-      url "https://dl.portia.sh/v0.5.0/portia-linux-x64"
-      sha256 "738576db43210eaa2b44f3465c0748f764f5eb4359f901a58a88883da0168321"
+      url "https://dl.portia.sh/v0.5.1/portia-linux-x64"
+      sha256 "0b9a1dd663b3734651d5132c4343aa5897c03f3b87bc6b3eb08455518fb4a0a6"
     end
   end
 
