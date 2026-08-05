@@ -1,5 +1,3 @@
-# homebrew-tap
-
 Personal Homebrew tap.
 
 | Package | Install | What it is |
