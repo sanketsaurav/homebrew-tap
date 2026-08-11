@@ -3,14 +3,9 @@ class Museletter < Formula
 
   desc "Headless, agent-first newsletter engine using SQLite and Amazon SES"
   homepage "https://github.com/sanketsaurav/museletter"
-  url "https://files.pythonhosted.org/packages/4c/59/27bb01504d41582094b3fd70a53df80c0ba585c4b2c1775793805c19a156/museletter-1.0.1.tar.gz"
-  sha256 "de34a01a6d620441df269c47e6c1efbf8d372396d14cb36860439b90b7d4e8da"
+  url "https://files.pythonhosted.org/packages/11/8b/22cf1679407179a65870c58418b0dfb11db345fc2ecc3341ead4f55c3306/museletter-1.1.0.tar.gz"
+  sha256 "58dc3c38f03f7a853fb88593a1db1b7c926eca0f9e266ff103bf5f79bc9f878e"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.0.1"
-    sha256 cellar: :any, arm64_sequoia: "61584b636155739b604bd31f65c6fe871721803c65bfeda63486d5e6953dc9b0"
-  end
 
   depends_on "rust" => :build      # builds cryptography and pydantic-core
   depends_on "openssl@3"
@@ -42,8 +37,8 @@ class Museletter < Formula
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/57/5f/ff100cae70ebe9d8df1c01a00e510e45d9adb5c1fdda84791b199141de97/cffi-2.1.0.tar.gz"
-    sha256 "efc1cdd798b1aaf39b4610bba7aad28c9bea9b910f25c784ccf9ec1fa719d1f9"
+    url "https://files.pythonhosted.org/packages/9e/ef/008a1939e372c06329a3fce4279c02f328488f3526744906eeec3da7ad5f/cffi-2.1.1.tar.gz"
+    sha256 "dd31f52ea1086513bb9df30f8fcee9b8918323ae067a3d5b78bc826a000712be"
   end
 
   resource "click" do
@@ -52,8 +47,8 @@ class Museletter < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/1f/99/d1c90d6041656cc6ee229dc99cd67fd0cd5aec3c5f7d72fffc27cc750054/cryptography-49.0.0.tar.gz"
-    sha256 "f89660a348f4f78a92366240a61404e337586ef7f5909a2fef59ca88ef505493"
+    url "https://files.pythonhosted.org/packages/de/41/6cbdcf9142d00fe82836fbb51e503e58088575cf7a0fe1dbff6695bf0840/cryptography-50.0.0.tar.gz"
+    sha256 "eeac2acb5a20ed25e0ad6d1df9891a520b78b404266b6d11778f25d5d691a6c9"
   end
 
   resource "dnspython" do
@@ -142,13 +137,13 @@ class Museletter < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/eb/e3/7c1dc7381d9f8ab7d854328ebfa884e62cb3f3d8549ddfd37c7814f42afa/starlette-1.3.1.tar.gz"
-    sha256 "05d0213193f2fbaae60e2ecb593b4add4262ad4e46536b54abe36f11a71724e0"
+    url "https://files.pythonhosted.org/packages/b5/b4/205b0d5241d934e8add0c38aa924c4f9fb7330834ff11e5444db964ec3f9/starlette-1.6.0.tar.gz"
+    sha256 "d4e3ac5e546444960c710297a3c9fc3f7ebae1b7e963f3d36173b49da535be9b"
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/37/78/fda3361b56efc27944f24225f6ecd13d96d6fcfe37bd0eb34e2f4c63f9fc/typer-0.27.0.tar.gz"
-    sha256 "629bd12ea5d13a17148125d9a264f949eb171fb3f120f9b04d85873cab054fa5"
+    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
+    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
   end
 
   resource "typing-extensions" do
@@ -157,13 +152,13 @@ class Museletter < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/55/e3/70399cb7dd41c10ac53367ae42139cf4b1ca5f36bb3dc6c9d33acdb43655/typing_inspection-0.4.2.tar.gz"
-    sha256 "ba561c48a67c5958007083d386c3295464928b01faa735ab8547c5692e87f464"
+    url "https://files.pythonhosted.org/packages/6d/bc/4eae18cd40c65798a16267572ba346c11f599d44b01603dbd843342042bc/typing_inspection-0.4.3.tar.gz"
+    sha256 "c5f9ec1530b5c1e2c9bc34a84d9a3466ed1b2f3f2fa9f901368d9c5596210e4d"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/05/c8/2d307868453a4bca6e64fa3581d122ae0748a0869c53f159339def179c7c/uvicorn-0.52.0.tar.gz"
-    sha256 "ca8876ad6c1983f394157c168b39d52f6dd56dabf5602fa0982751cffc2293ae"
+    url "https://files.pythonhosted.org/packages/03/18/ccce41535dee1be77735592bd19965f3972c82e07ee703d324709496b716/uvicorn-0.52.1.tar.gz"
+    sha256 "112ec661814189acbccd3f7b86460147cc065fc92c0821afa78918780e4354dd"
   end
 
   def install
