@@ -1,16 +1,11 @@
 class Museletter < Formula
   include Language::Python::Virtualenv
 
-  desc "Headless, agent-first newsletter engine using SQLite and Amazon SES"
+  desc "Headless, agent-first newsletter engine using SQLite and SES or Cloudflare"
   homepage "https://github.com/sanketsaurav/museletter"
-  url "https://files.pythonhosted.org/packages/11/8b/22cf1679407179a65870c58418b0dfb11db345fc2ecc3341ead4f55c3306/museletter-1.1.0.tar.gz"
-  sha256 "58dc3c38f03f7a853fb88593a1db1b7c926eca0f9e266ff103bf5f79bc9f878e"
+  url "https://files.pythonhosted.org/packages/ed/3c/0fe264ee5486f8590fdc63720c9b80f55b38efd3d96cac7255eb3c67ddc4/museletter-1.2.0.tar.gz"
+  sha256 "3850b71d8a1c17dad2b9c1c9a8004e1c68e3b92a8d72c6591df896d84b8a97ac"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.1.0"
-    sha256 cellar: :any, arm64_sequoia: "85e191567c0f03b0f00c200efd2824fe10f612124bcd605efc4f7fe96b1f6120"
-  end
 
   depends_on "rust" => :build      # builds cryptography and pydantic-core
   depends_on "openssl@3"
@@ -47,13 +42,13 @@ class Museletter < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
+    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
+    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/de/41/6cbdcf9142d00fe82836fbb51e503e58088575cf7a0fe1dbff6695bf0840/cryptography-50.0.0.tar.gz"
-    sha256 "eeac2acb5a20ed25e0ad6d1df9891a520b78b404266b6d11778f25d5d691a6c9"
+    url "https://files.pythonhosted.org/packages/bb/ad/5d6702db60b1e40b41ef513b6967ff5848f307d50f8449baf1634f5908f1/cryptography-50.0.1.tar.gz"
+    sha256 "5dd9bda1c12b4162f6ff568eeb5e0ff956c28d14406e875cfe8a63a2d414ff20"
   end
 
   resource "dnspython" do
@@ -87,8 +82,8 @@ class Museletter < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/cd/63/9496c57188a2ee585e0f1db071d75089a11e98aa86eb99d9d7618fc1edce/idna-3.18.tar.gz"
-    sha256 "ffb385a7e039654cef1ab9ef32c6fafe283c0c0467bba1d9029738ce4a14a848"
+    url "https://files.pythonhosted.org/packages/5f/f7/abb373e5757eaec4b922b92f97ec8d6d7e057cf06778247604fbc4e7c3f3/idna-3.19.tar.gz"
+    sha256 "5e0811a4383b21dc5838069f801c4fb62113b7447663d2530d2bd6e77b49bf15"
   end
 
   resource "markdown-it-py" do
@@ -122,8 +117,8 @@ class Museletter < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/c3/b2/bc9c9196916376152d655522fdcebac55e66de6603a76a02bca1b6414f6c/pygments-2.20.0.tar.gz"
-    sha256 "6757cd03768053ff99f3039c1a36d6c0aa0b263438fcab17520b30a303a82b5f"
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "python-multipart" do
@@ -157,13 +152,13 @@ class Museletter < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/6d/bc/4eae18cd40c65798a16267572ba346c11f599d44b01603dbd843342042bc/typing_inspection-0.4.3.tar.gz"
-    sha256 "c5f9ec1530b5c1e2c9bc34a84d9a3466ed1b2f3f2fa9f901368d9c5596210e4d"
+    url "https://files.pythonhosted.org/packages/a3/26/b09b8010994eccc3c09092e6b34058f36a460eea2d4c3e8b910c695975a0/typing_inspection-0.4.4.tar.gz"
+    sha256 "547274fa6b0a561ccf549cc9524b999a578e737d015d8709d021f9d0d13bea47"
   end
 
   resource "uvicorn" do
-    url "https://files.pythonhosted.org/packages/03/18/ccce41535dee1be77735592bd19965f3972c82e07ee703d324709496b716/uvicorn-0.52.1.tar.gz"
-    sha256 "112ec661814189acbccd3f7b86460147cc065fc92c0821afa78918780e4354dd"
+    url "https://files.pythonhosted.org/packages/f2/0f/3f86e61397dd33bf2ccf28188c40db6a740658aeebbbf6e7dbc101a1f487/uvicorn-0.52.4.tar.gz"
+    sha256 "73acfee47a0b133c5de13d219492d62d8a31e935f4fe6e41a232451a15379f86"
   end
 
   def install
