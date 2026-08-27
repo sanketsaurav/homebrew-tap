@@ -75,6 +75,9 @@ jobs:
           tap_dir="$(brew --repository)/Library/Taps/sanketsaurav/homebrew-tap"
           mkdir -p "$(dirname "$tap_dir")"
           ln -s "$PWD" "$tap_dir"
+          # Newer brews refuse to load formulae from untrusted third-party
+          # taps; older brews do not have the command yet, hence the guard.
+          brew trust --tap sanketsaurav/tap || true
 
           for formula_name in ${{ needs.pick.outputs.list }}; do
             ref="sanketsaurav/tap/$formula_name"
@@ -133,6 +136,9 @@ jobs:
           tap_dir="$(brew --repository)/Library/Taps/sanketsaurav/homebrew-tap"
           mkdir -p "$(dirname "$tap_dir")"
           ln -s "$PWD" "$tap_dir"
+          # Newer brews refuse to load formulae from untrusted third-party
+          # taps; older brews do not have the command yet, hence the guard.
+          brew trust --tap sanketsaurav/tap || true
 
           merged=""
           for formula_name in ${{ needs.pick.outputs.list }}; do
