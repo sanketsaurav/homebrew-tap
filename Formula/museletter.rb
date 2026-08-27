@@ -7,6 +7,11 @@ class Museletter < Formula
   sha256 "3850b71d8a1c17dad2b9c1c9a8004e1c68e3b92a8d72c6591df896d84b8a97ac"
   license "MIT"
 
+  bottle do
+    root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.2.0"
+    sha256 cellar: :any, arm64_sequoia: "837ec4b02c9cc12b54fdf94d401f5ceb7d38065015453aac515122ce9b91910b"
+  end
+
   depends_on "rust" => :build      # builds cryptography and pydantic-core
   depends_on "openssl@3"
   depends_on "python@3.13"
