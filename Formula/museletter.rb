@@ -9,7 +9,8 @@ class Museletter < Formula
 
   bottle do
     root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.2.0"
-    sha256 cellar: :any, arm64_sequoia: "837ec4b02c9cc12b54fdf94d401f5ceb7d38065015453aac515122ce9b91910b"
+    sha256 cellar: :any, arm64_tahoe:   "a626bf4c465f8927944d14940300ec975621fdb17887dfd58dbf49b7591d967c"
+    sha256 cellar: :any, arm64_sequoia: "20024b2f91bbaccf2a4e96aae90de87b817222ab6cb3fd7cf8711bd686a5fa94"
   end
 
   depends_on "rust" => :build      # builds cryptography and pydantic-core
