@@ -3,15 +3,9 @@ class Museletter < Formula
 
   desc "Headless, agent-first newsletter engine using SQLite and SES or Cloudflare"
   homepage "https://github.com/sanketsaurav/museletter"
-  url "https://files.pythonhosted.org/packages/ed/3c/0fe264ee5486f8590fdc63720c9b80f55b38efd3d96cac7255eb3c67ddc4/museletter-1.2.0.tar.gz"
-  sha256 "3850b71d8a1c17dad2b9c1c9a8004e1c68e3b92a8d72c6591df896d84b8a97ac"
+  url "https://files.pythonhosted.org/packages/cf/c5/9079d75980029ce5eb269afb9d237f091c86d8ecea1768afecc125c71b1b/museletter-1.3.0.tar.gz"
+  sha256 "580cfdb395f370b815c4399486400d5f7062b07da35581bc095660d1ec6a6ada"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.2.0"
-    sha256 cellar: :any, arm64_tahoe:   "a626bf4c465f8927944d14940300ec975621fdb17887dfd58dbf49b7591d967c"
-    sha256 cellar: :any, arm64_sequoia: "20024b2f91bbaccf2a4e96aae90de87b817222ab6cb3fd7cf8711bd686a5fa94"
-  end
 
   depends_on "rust" => :build      # builds cryptography and pydantic-core
   depends_on "openssl@3"
@@ -33,8 +27,8 @@ class Museletter < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/61/cc/a381afa6efea9f496eff839d4a6a1aed3bfafc7b3ab4b0d1b243a12573dd/anyio-4.14.2.tar.gz"
-    sha256 "cfa139f3ed1a23ee8f88a145ddb5ac7605b8bbfd8592baacd7ce3d8bb4313c7f"
+    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
+    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
   end
 
   resource "certifi" do
@@ -113,13 +107,13 @@ class Museletter < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/18/a5/b60d21ac674192f8ab0ba4e9fd860690f9b4a6e51ca5df118733b487d8d6/pydantic-2.13.4.tar.gz"
-    sha256 "c40756b57adaa8b1efeeced5c196f3f3b7c435f90e84ea7f443901bec8099ef6"
+    url "https://files.pythonhosted.org/packages/53/ef/fc4f868f4e2cee79f863883abffceff107875f569b848507319842d2a681/pydantic-2.13.5.tar.gz"
+    sha256 "51a9c5f7b2f8e636f04c6cada605d9b6a3bf1348fdf945a3d8869b19bba0ee08"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/9d/56/921726b776ace8d8f5db44c4ef961006580d91dc52b803c489fafd1aa249/pydantic_core-2.46.4.tar.gz"
-    sha256 "62f875393d7f270851f20523dd2e29f082bcc82292d66db2b64ea71f64b6e1c1"
+    url "https://files.pythonhosted.org/packages/af/f9/8a06bea35ef8daf588f707784c973a7046e0034c8d8cfb08828eeffb8b75/pydantic_core-2.46.5.tar.gz"
+    sha256 "10416c15b8839ecc4ef4d0885da76da6fd0f67333a0eb8aff6d93c4b8f2910fc"
   end
 
   resource "pygments" do
@@ -148,8 +142,8 @@ class Museletter < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ae/40/4a3db7990d1f62a53182aa96eaef57aeb2886a27f90a195bc66713565d31/typer-0.27.1.tar.gz"
-    sha256 "a79bef8469a79c45498e7b814ecf8d603cc7644e9acbd9e19cac0334240b18df"
+    url "https://files.pythonhosted.org/packages/16/f7/57713ba479fd405eb76de31404b2c744c289e336b2d999511ebf51e496f7/typer-0.27.2.tar.gz"
+    sha256 "269b7eb9d3c202ca84b4bc9618cb04ebb43d3d4d1e567e4c768607232c05f945"
   end
 
   resource "typing-extensions" do
