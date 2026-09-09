@@ -3,15 +3,9 @@ class Museletter < Formula
 
   desc "Headless, agent-first newsletter engine using SQLite and SES or Cloudflare"
   homepage "https://github.com/sanketsaurav/museletter"
-  url "https://files.pythonhosted.org/packages/1e/8b/e28e7f4e3af09f0bc572de6f7628e5852896088fc72b66fb3b4bbccccb28/museletter-1.4.0.tar.gz"
-  sha256 "ce0ccdd068188b1cd4a5205d3323cff6b29ca2337633c921012888452f45d237"
+  url "https://files.pythonhosted.org/packages/9d/75/ab4c1c2a744231a8b59ca9deedc058c448ccad37bf4c47d9574551a97fe0/museletter-1.5.0.tar.gz"
+  sha256 "ef6a658f56f87a0491f3e1799a8e77c42be681ece40a1a857f4a3e0ec7893624"
   license "MIT"
-
-  bottle do
-    root_url "https://github.com/sanketsaurav/homebrew-tap/releases/download/museletter-1.4.0"
-    sha256 cellar: :any, arm64_tahoe:   "52393a5b7365d6ded06efe45af2c54d456f1cb20a922d5d8afc3478b438f258f"
-    sha256 cellar: :any, arm64_sequoia: "8693287fe56a0bf7334345289740b6a32ceee273916e711e199f97a88f5c774f"
-  end
 
   depends_on "rust" => :build      # builds cryptography and pydantic-core
   depends_on "openssl@3"
