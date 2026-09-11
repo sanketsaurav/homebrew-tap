@@ -26,7 +26,9 @@ jobs:
   pick:
     # The bottle-block commit is pushed with GITHUB_TOKEN (which does not
     # re-trigger workflows); the message check is belt-and-suspenders.
-    if: ${{ github.event_name == 'workflow_dispatch' || !contains(github.event.head_commit.message, 'add bottle') }}
+    # A commit marked [no bottle] carries a formula that can't be built on the
+    # runner (e.g. one that clones a private repo over SSH).
+    if: ${{ github.event_name == 'workflow_dispatch' || (!contains(github.event.head_commit.message, 'add bottle') && !contains(github.event.head_commit.message, '[no bottle]')) }}
     runs-on: ubuntu-latest
     outputs:
       list: ${{ steps.pick.outputs.list }}
