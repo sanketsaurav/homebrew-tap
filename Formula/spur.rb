@@ -7,8 +7,8 @@ class Spur < Formula
   homepage "https://github.com/sanketsaurav/spur"
   url "git@github.com:sanketsaurav/spur.git",
       using:    :git,
-      tag:      "v0.2.1",
-      revision: "36f36fda18554f1a1b68316dcac59113b5939a57"
+      tag:      "v0.3.0",
+      revision: "4b05db315793e4fc8333454c21d5f0e6910c256a"
   license "MIT"
   head "git@github.com:sanketsaurav/spur.git", using: :git, branch: "master"
 
